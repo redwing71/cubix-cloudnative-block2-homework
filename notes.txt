@@ -10,3 +10,13 @@ map[cubix.homework.owner:Zsolt Rituper org.opencontainers.image.ref.name:ubuntu 
 
 # Docker Compose run commands
 PS C:\Users\63354\Documents\GitHub\cubix-cloudnative-block2-homework> docker compose up
+
+# Application log
+homework-2-frontend-1  | 2025-05-28T11:35:19.572Z  INFO 1 --- [nio-8080-exec-2] h.c.c.api.controller.FrontappController  : Preparing for calling backapp - message was: Hello
+homework-2-frontend-1  | 2025-05-28T11:35:19.573Z  INFO 1 --- [nio-8080-exec-2] h.c.c.api.controller.FrontappController  : Calling backapp
+homework-2-frontend-1  | 2025-05-28T11:35:19.660Z  INFO 1 --- [nio-8080-exec-2] h.c.c.api.controller.FrontappController  : Backapp call was successful, response was: BackappResponse[time=2025-05-28T13:35:19.605489800, message=Hello, homeworkOwner=backapp-me, hostAddress=192.168.50.65, extraImageData=NOT_SET]
+homework-2-frontend-1  | 2025-05-28T11:35:19.666Z  INFO 1 --- [nio-8080-exec-2] h.c.c.api.controller.FrontappController  : Response will be: FrontappResponse[msForReply=7200032, backappMessage=Hello, frontappHomeworkOwner=Zsolt Rituper, frontappHostAddress=172.26.0.3, backappHomeworkOwner=backapp-me, backappHostAddress=192.168.50.65, doExtraImageDataMatch=false]
+homework-2-frontend-1  | 2025-05-28T11:35:22.971Z  INFO 1 --- [nio-8080-exec-3] h.c.c.api.controller.FrontappController  : Preparing for calling backapp - message was: null
+homework-2-frontend-1  | 2025-05-28T11:35:22.972Z  INFO 1 --- [nio-8080-exec-3] h.c.c.api.controller.FrontappController  : Calling backapp
+homework-2-frontend-1  | 2025-05-28T11:35:22.979Z  INFO 1 --- [nio-8080-exec-3] h.c.c.api.controller.FrontappController  : Backapp call was successful, response was: BackappResponse[time=2025-05-28T13:35:22.975692600, message=DEFAULT-BACKAPP-MESSAGE, homeworkOwner=backapp-me, hostAddress=192.168.50.65, extraImageData=NOT_SET]
+homework-2-frontend-1  | 2025-05-28T11:35:22.980Z  INFO 1 --- [nio-8080-exec-3] h.c.c.api.controller.FrontappController  : Response will be: FrontappResponse[msForReply=7200003, backappMessage=DEFAULT-BACKAPP-MESSAGE, frontappHomeworkOwner=Zsolt Rituper, frontappHostAddress=172.26.0.3, backappHomeworkOwner=backapp-me, backappHostAddress=192.168.50.65, doExtraImageDataMatch=false]
