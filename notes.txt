@@ -1,0 +1,9 @@
+# Docker build commands
+PS C:\Users\63354\Documents\GitHub\cubix-cloudnative-block2-homework> docker build -t homework-2-backapp --target backapp .
+PS C:\Users\63354\Documents\GitHub\cubix-cloudnative-block2-homework> docker build -t homework-2-frontapp --target frontapp .
+
+# Label check commands
+PS C:\Users\63354\Documents\GitHub\cubix-cloudnative-block2-homework> docker inspect --format '{{ index .Config.Labels }}' homework-2-frontapp
+map[cubix.homework.owner:Zsolt Rituper org.opencontainers.image.ref.name:ubuntu org.opencontainers.image.version:22.04]
+PS C:\Users\63354\Documents\GitHub\cubix-cloudnative-block2-homework> docker inspect --format '{{ index .Config.Labels }}' homework-2-backapp
+map[cubix.homework.owner:Zsolt Rituper org.opencontainers.image.ref.name:ubuntu org.opencontainers.image.version:22.04]
