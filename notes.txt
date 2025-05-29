@@ -1,6 +1,6 @@
 # Docker build commands
-PS C:\Users\63354\Documents\GitHub\cubix-cloudnative-block2-homework> docker build -t homework-2-backapp --target backapp .
-PS C:\Users\63354\Documents\GitHub\cubix-cloudnative-block2-homework> docker build -t homework-2-frontapp --target frontapp .
+PS C:\Users\63354\Documents\GitHub\cubix-cloudnative-block2-homework> docker build --build-arg FROMAPP=backapp -t homework-2-backapp .
+PS C:\Users\63354\Documents\GitHub\cubix-cloudnative-block2-homework> docker build --build-arg FROMAPP=frontapp -t homework-2-frontapp .
 
 # Label check commands
 PS C:\Users\63354\Documents\GitHub\cubix-cloudnative-block2-homework> docker inspect --format '{{ index .Config.Labels }}' homework-2-frontapp
@@ -12,11 +12,20 @@ map[cubix.homework.owner:Zsolt Rituper org.opencontainers.image.ref.name:ubuntu 
 PS C:\Users\63354\Documents\GitHub\cubix-cloudnative-block2-homework> docker compose up
 
 # Application log
-homework-2-frontend-1  | 2025-05-28T11:35:19.572Z  INFO 1 --- [nio-8080-exec-2] h.c.c.api.controller.FrontappController  : Preparing for calling backapp - message was: Hello
-homework-2-frontend-1  | 2025-05-28T11:35:19.573Z  INFO 1 --- [nio-8080-exec-2] h.c.c.api.controller.FrontappController  : Calling backapp
-homework-2-frontend-1  | 2025-05-28T11:35:19.660Z  INFO 1 --- [nio-8080-exec-2] h.c.c.api.controller.FrontappController  : Backapp call was successful, response was: BackappResponse[time=2025-05-28T13:35:19.605489800, message=Hello, homeworkOwner=backapp-me, hostAddress=192.168.50.65, extraImageData=NOT_SET]
-homework-2-frontend-1  | 2025-05-28T11:35:19.666Z  INFO 1 --- [nio-8080-exec-2] h.c.c.api.controller.FrontappController  : Response will be: FrontappResponse[msForReply=7200032, backappMessage=Hello, frontappHomeworkOwner=Zsolt Rituper, frontappHostAddress=172.26.0.3, backappHomeworkOwner=backapp-me, backappHostAddress=192.168.50.65, doExtraImageDataMatch=false]
-homework-2-frontend-1  | 2025-05-28T11:35:22.971Z  INFO 1 --- [nio-8080-exec-3] h.c.c.api.controller.FrontappController  : Preparing for calling backapp - message was: null
-homework-2-frontend-1  | 2025-05-28T11:35:22.972Z  INFO 1 --- [nio-8080-exec-3] h.c.c.api.controller.FrontappController  : Calling backapp
-homework-2-frontend-1  | 2025-05-28T11:35:22.979Z  INFO 1 --- [nio-8080-exec-3] h.c.c.api.controller.FrontappController  : Backapp call was successful, response was: BackappResponse[time=2025-05-28T13:35:22.975692600, message=DEFAULT-BACKAPP-MESSAGE, homeworkOwner=backapp-me, hostAddress=192.168.50.65, extraImageData=NOT_SET]
-homework-2-frontend-1  | 2025-05-28T11:35:22.980Z  INFO 1 --- [nio-8080-exec-3] h.c.c.api.controller.FrontappController  : Response will be: FrontappResponse[msForReply=7200003, backappMessage=DEFAULT-BACKAPP-MESSAGE, frontappHomeworkOwner=Zsolt Rituper, frontappHostAddress=172.26.0.3, backappHomeworkOwner=backapp-me, backappHostAddress=192.168.50.65, doExtraImageDataMatch=false]
+homework-2-frontend-1  | 2025-05-29T07:43:59.137Z  INFO 1 --- [nio-8080-exec-1] h.c.c.api.controller.FrontappController  : Preparing for calling backapp - message was: Hello
+homework-2-frontend-1  | 2025-05-29T07:43:59.138Z  INFO 1 --- [nio-8080-exec-1] h.c.c.api.controller.FrontappController  : Calling backapp
+homework-2-backend-1   | 2025-05-29T07:43:59.189Z  INFO 1 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+homework-2-backend-1   | 2025-05-29T07:43:59.190Z  INFO 1 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+homework-2-backend-1   | 2025-05-29T07:43:59.191Z  INFO 1 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+homework-2-backend-1   | 2025-05-29T07:43:59.218Z  INFO 1 --- [nio-8080-exec-1] hu.cubix.cloud.api.BackappController     : Request arrived with message Hello
+homework-2-backend-1   | 2025-05-29T07:43:59.221Z  INFO 1 --- [nio-8080-exec-1] hu.cubix.cloud.api.BackappController     : Returning response: BackappResponse[time=2025-05-29T07:43:59.219179611, message=Hello, homeworkOwner=Zsolt Rituper, hostAddress=172.26.0.2, extraImageData=Cubix training]
+homework-2-frontend-1  | 2025-05-29T07:43:59.316Z  INFO 1 --- [nio-8080-exec-1] h.c.c.api.controller.FrontappController  : Backapp call was successful, response was: BackappResponse[time=2025-05-29T07:43:59.219179611, message=Hello, homeworkOwner=Zsolt Rituper, hostAddress=172.26.0.2, extraImageData=Cubix training]
+homework-2-frontend-1  | 2025-05-29T07:43:59.321Z  INFO 1 --- [nio-8080-exec-1] h.c.c.api.controller.FrontappController  : Response will be: FrontappResponse[msForReply=80, backappMessage=Hello, frontappHomeworkOwner=Zsolt Rituper, frontappHostAddress=172.26.0.3, backappHomeworkOwner=Zsolt Rituper, backappHostAddress=172.26.0.2, doExtraImageDataMatch=true]
+homework-2-frontend-1  | 2025-05-29T07:44:08.294Z  INFO 1 --- [nio-8080-exec-3] h.c.c.api.controller.FrontappController  : Preparing for calling backapp - message was: null
+homework-2-frontend-1  | 2025-05-29T07:44:08.294Z  INFO 1 --- [nio-8080-exec-3] h.c.c.api.controller.FrontappController  : Calling backapp
+homework-2-backend-1   | 2025-05-29T07:44:08.297Z  INFO 1 --- [nio-8080-exec-2] hu.cubix.cloud.api.BackappController     : Request arrived with message
+homework-2-frontend-1  | 2025-05-29T07:44:08.302Z  INFO 1 --- [nio-8080-exec-3] h.c.c.api.controller.FrontappController  : Backapp call was successful, response was: BackappResponse[time=2025-05-29T07:44:08.297856562, message=hardcoded-default-backapp-message, homeworkOwner=Zsolt Rituper, hostAddress=172.26.0.2, extraImageData=Cubix training]
+homework-2-backend-1   | 2025-05-29T07:44:08.297Z  INFO 1 --- [nio-8080-exec-2] hu.cubix.cloud.api.BackappController     : Message was empty, fall back to default
+homework-2-frontend-1  | 2025-05-29T07:44:08.302Z  INFO 1 --- [nio-8080-exec-3] h.c.c.api.controller.FrontappController  : Response will be: FrontappResponse[msForReply=3, backappMessage=hardcoded-default-backapp-message, frontappHomeworkOwner=Zsolt Rituper, frontappHostAddress=172.26.0.3, backappHomeworkOwner=Zsolt Rituper, backappHostAddress=172.26.0.2, doExtraImageDataMatch=true]
+homework-2-backend-1   | 2025-05-29T07:44:08.297Z  INFO 1 --- [nio-8080-exec-2] hu.cubix.cloud.api.BackappController     : Default message was empty, falling back to hardcoded default
+homework-2-backend-1   | 2025-05-29T07:44:08.298Z  INFO 1 --- [nio-8080-exec-2] hu.cubix.cloud.api.BackappController     : Returning response: BackappResponse[time=2025-05-29T07:44:08.297856562, message=hardcoded-default-backapp-message, homeworkOwner=Zsolt Rituper, hostAddress=172.26.0.2, extraImageData=Cubix training]

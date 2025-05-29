@@ -1,13 +1,10 @@
 services:
   homework-2-backend:
     image: homework-2-backapp
-    environment: 
-      CUBIX_HOMEWORK: "Zsolt Rituper"
       
   homework-2-frontend:
     image: homework-2-frontapp
     ports:
     - 8080:8080
     environment: 
-      CUBIX_HOMEWORK: "Zsolt Rituper"
-      BACK_URL: "http://host.docker.internal:8081"
+      BACK_URL: "http://homework-2-backend:8080"
